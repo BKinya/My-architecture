@@ -1,6 +1,6 @@
-package com.beatrice.myarchitecture.data
+package com.beatrice.myarchitecture
 
-data class Model(
+data class MyModel(
     var count: Int
 ) {
     fun updateCount(){
