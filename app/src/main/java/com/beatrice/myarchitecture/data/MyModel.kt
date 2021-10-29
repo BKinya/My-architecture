@@ -9,7 +9,7 @@ data class MyModel(
     val id: Int,
     var count: Int
 ) {
-    fun updateCount(){
+    fun updateCount() {
         count += 1
     }
 }

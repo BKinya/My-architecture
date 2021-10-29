@@ -20,12 +20,9 @@ class MainActivity : AppCompatActivity() {
 
         countTextView = findViewById(R.id.countTextView)
         button = findViewById(R.id.button)
-        viewModel.getCountModel()
-        setButtonClickedMVVM()
-       observeCount()
     }
 
-    fun setTextMvc(){
+    fun setTextMvc() {
         countTextView.text = modelMVC.count.toString()
     }
 
@@ -37,15 +34,18 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun setButtonClickedMVVM(){
+    fun setButtonClickedMVVM() {
         button.setOnClickListener {
-            viewModel.updateCountAndSave()
+            viewModel.updateCount()
         }
     }
 
-    fun observeCount(){
-        viewModel.countModel.observe(this){
-            Log.d("Gotten", "was ${it.count}")
+    fun getCountMVVM() {
+        viewModel.getCountModel()
+    }
+
+    fun observeCountMVVM() {
+        viewModel.model.observe(this) {
             countTextView.text = it.count.toString()
         }
     }
