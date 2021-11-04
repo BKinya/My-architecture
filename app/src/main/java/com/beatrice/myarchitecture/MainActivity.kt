@@ -8,12 +8,14 @@ import androidx.appcompat.app.AppCompatActivity
 import com.beatrice.myarchitecture.data.MyModel
 import org.koin.android.viewmodel.ext.android.viewModel
 
+
 class MainActivity : AppCompatActivity() {
-    val modelMVC = MyModel(count = 0, id = 1)
     private lateinit var countTextView: TextView
     private lateinit var button: Button
 
+    val modelMVC = MyModel(count = 0, id = 1)
     private val viewModel: MyViewModel by viewModel()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -36,7 +38,7 @@ class MainActivity : AppCompatActivity() {
 
     fun setButtonClickedMVVM() {
         button.setOnClickListener {
-            viewModel.updateCount()
+            viewModel.updateCountAndSave()
         }
     }
 

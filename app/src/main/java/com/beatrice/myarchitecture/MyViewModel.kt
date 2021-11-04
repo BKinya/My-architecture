@@ -10,23 +10,22 @@ import kotlinx.coroutines.launch
 class MyViewModel(
     private val repository: MyRepository
 ) : ViewModel() {
-   private val modelLiveData = MutableLiveData(MyModel(id = 1, count = 0))
-     val model: LiveData<MyModel> = modelLiveData
+    private val modelLiveData = MutableLiveData(MyModel(id = 1, count = 0))
+    val model: LiveData<MyModel> = modelLiveData
 
-   private val countModelLiveData = MutableLiveData<MyModel>()
-     val countModel: LiveData<MyModel> = countModelLiveData
     fun updateCount() {
-       modelLiveData.apply {
-          val count = this.value?.count
-           count?.let {
-               postValue(MyModel(count= it.plus(1), id = 1,))
-           }
-       }
+        modelLiveData.apply {
+            val updatedCount = (value?.count)?.plus(1)
+            updatedCount?.let {
+                value = MyModel(count = it, id = 1)
+
+            }
+        }
     }
 
-    fun updateCountAndSave(){
+    fun updateCountAndSave() {
         viewModelScope.launch {
-            countModelLiveData.apply {
+            modelLiveData.apply {
                 val model = this.value
                 model?.let {
                     it.count = it.count + 1
@@ -36,10 +35,11 @@ class MyViewModel(
             }
         }
     }
-   fun getCountModel(){
+
+    fun getCountModel() {
         viewModelScope.launch {
             val countModel = repository.getCount() ?: MyModel(count = 0, id = 1)
-            countModelLiveData.postValue(countModel)
+            modelLiveData.postValue(countModel)
         }
-   }
+    }
 }
