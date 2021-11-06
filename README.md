@@ -8,4 +8,4 @@ A simple app to explain 'Architecting your app' at GDSC Moi Android Series II tr
 - [Save data in local database using Room](https://developer.android.com/training/data-storage/room)
 - [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel?gclid=CjwKCAjwiY6MBhBqEiwARFSCPuChdg21jNOFPCTPUAueXiOUQLI5xiHg0Utooi4XmSNnk6EnkywoYhoCx-cQAvD_BwE&gclsrc=aw.ds)
 - [LiveData](https://developer.android.com/topic/libraries/architecture/livedata)
-- [Slide](https://speakerdeck.com/bkinya/architecting-your-apps)
+- [Slides](https://speakerdeck.com/bkinya/architecting-your-apps)
