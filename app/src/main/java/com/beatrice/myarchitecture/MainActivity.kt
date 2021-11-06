@@ -8,12 +8,13 @@ import androidx.appcompat.app.AppCompatActivity
 import com.beatrice.myarchitecture.data.MyModel
 import org.koin.android.viewmodel.ext.android.viewModel
 
-
 class MainActivity : AppCompatActivity() {
+
     private lateinit var countTextView: TextView
     private lateinit var button: Button
 
     val modelMVC = MyModel(count = 0, id = 1)
+
     private val viewModel: MyViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,6 +23,9 @@ class MainActivity : AppCompatActivity() {
 
         countTextView = findViewById(R.id.countTextView)
         button = findViewById(R.id.button)
+        observeCountMVVM()
+        getCountMVVM()
+        setButtonClickedMVVM()
     }
 
     fun setTextMvc() {
